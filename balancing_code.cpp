@@ -17,6 +17,7 @@ int balance(string p, int n)
             { return 0; }
 
             temp = S.top();
+            S.pop();
 
             if ( (temp=='(' && p[i] == ')') || (temp=='{' && p[i] == '}') || (temp=='[' && p[i] == ']'))
 
@@ -25,7 +26,9 @@ int balance(string p, int n)
             else {return 0;}
         }
     }
-    return 1;
+    if ( S.empty() )
+    { return 1; }
+    else {return 0;}
 }
 
 int length (string p)
@@ -36,15 +39,20 @@ int length (string p)
 }
 int main()
 {
+    int t;
+    cin >> t;
 
     string p;
+    for (int k=0; k<t; k++)
+    {
     cin >> p;
     int size = length(p);
     int res;
     res = balance(p, size);
 
-    if (res) {cout << "True"; } else {cout << "False";}
+    if (res) {cout << "YES"<<endl; } else {cout << "NO"<<endl;}
 
+
+    }
     return 0;
-
 }
